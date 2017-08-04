@@ -1,0 +1,132 @@
+<div class="panel panel-default">
+ 	<div class="panel-heading">
+		Create your job list
+ 	</div>	
+	<div class="panel-body">
+		<div class="container">
+
+		  <%= form_for @job, html: {multipart: true} do |f| %>
+		
+			<div class="row">
+			 <div class="col-md-4 select">
+				<div class="form-group">
+				<label>Industry Type </label>
+				<%= f.select :industry_type,[["Agriculture/Agribusiness","Agriculture/Agribusiness"],["Business Services ","Business Services "],["Communications ","Communications "],
+				["Consulting","Consulting"],["Information Technology","Information Technology"],["Marketing","Marketing"],["Medical Services","Medical Services"],["Mining","Mining"],["Oil/ Gas","Oil/ Gas"]
+				], id: "industry_type", prompt: "Select...", class:"form-control"  %>
+				</div>
+			 </div>
+			 <div class="col-md-4 select">
+				<div class="form-group">
+				<label>Job Type </label>
+				<%= f.select :job_type,[["Account Management","Account Management"],["Administrative/Secretarial","Administrative/Secretarial"],["Customer Service/Client Care","Customer Service/Client Care"],["Driving / Transportation","Driving / Transportation"],["Engineering","Engineering"],["I.T.","I.T."],["Management/Administration","Management/Administration"],["Marketing","Marketing"],["Mining/Petroleum","Mining/Petroleum"],["Project Development / Management","Project Development / Management"],["Publishing/Printing","Publishing/Printing"],["Accounting/Auditing","Accounting/Auditing"]], id: "job_type", prompt: "Select...", class: "form-control"  %>
+				</div>
+			 </div>
+		    </div>
+
+		    <div class="row">
+		    	<div class="form-group">
+		    		<label>	Company name</label>
+		    		<%= f.text_field :company_name, placeholder: "Company Name", class: "form-control" %>
+		    	</div>
+		    </div>
+
+		    <div class="row">
+		    	<div class="form-group">
+		    		<label>	Job position</label>
+		    		<%= f.text_field :job_position, placeholder: "Job Position", class: "form-control" %>
+		    	</div>
+		    </div>
+		    <div class="row">
+			    <div class="col-md-4 select">
+					<div class="form-group">
+					<label>Job status</label>
+					<%= f.select :job_status,[["Part-time","Part-time"],["Full-time","Full-time"],["Intern","Intern"]], id: "job_status", prompt: "Select...", class:"form-control"  %>
+					</div>
+				 </div>
+		    </div>
+
+
+		    <div class="row">
+		    	<div class="form-group">
+		    		<label>	Job description</label>
+		    		<%= f.text_area :job_description, placeholder: "Job Description", class: "tinymce" %>
+		    		<%= tinymce %>
+		    	</div>
+		    </div>
+
+		    <div class="row">
+		    	<div class="col-md-4 select">
+					<div class="form-group">
+					<label>Minimum education</label>
+					<%= f.select :education,[["Primary","Primary"],["Secondary","Secondary"],["Tiertary","Tiertary"],["Higher Education","Higher Education"],["Diploma HND","Diploma HND"], ["Bachelors Degree","Bachelors Degree"], ["Masters Degree","Masters Degree"], ["MBA","MBA"], ["MPHIL","MPHIL"]],id: "education", prompt: "Select...", class:"form-control"  %>
+					</div>
+				 </div>
+		    </div>
+
+		    <div class="row">
+		    	<div class="form-group">
+		    		<label>	Job skills</label>
+		    		<%= f.text_area :job_skills, placeholder: "Job Skills", class: "form-control" %>
+		    	</div>
+		    </div>
+			
+
+			<div class="row">
+				<div class="form-group">
+		    		<label>	Address</label>
+		    		<%= f.text_field :address, placeholder: "Address", class: "form-control" %>
+		    	</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+						
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+					<label>Salary</label>
+					<div class="input-group">
+					<div class="input-group-addon">$</div>
+					<%= f.text_field :salary, placeholder: "eg 500Ghc", class: "form-control" %>
+					</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+						<span class= "btn btn-default btn-file">
+							<i class = "fa fa-cloud-upload fa-lg"></i>Upload Photos
+							<%= file_field_tag "images[]", type: :file, multiple: true %>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div id="photos"><%= render 'photos/list' %></div>
+
+			<div class="row">
+				<div class="form-group">
+					<%= f.check_box :active %> Active
+				</div>
+			</div>
+
+
+
+			<div class="actions">
+				<%= f.submit "Save", class: "btn btn-primary" %>
+			</div>
+	      <% end %>
+
+	    </div>
+
+    </div>
+	
+</div>
