@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :cvs
   root 'pages#home'
 
   get  '/about',   to: 'pages#about'

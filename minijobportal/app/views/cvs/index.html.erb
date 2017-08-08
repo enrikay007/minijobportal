@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+
+<div class="panel-body">
+
+<h3>Listing Cvs</h3>
+<p>Welcome to user profile section.
+Please kindly create CV if not having one. Thank you</p>
+<p>Best Regards,</p>
+Your admin.
+
+<p>
+<% @cvs.each do |cv| %>
+<%= link_to 'Go to my CV', cv %>
+<% end %>
+</p>
+<br>
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Profession</th>
+ </tr>
+  </thead>
+  <tbody>
+    <% @cvs.each do |cv| %>
+      <tr>
+        <td><%= cv.name %></td>
+        <td><%= cv.profession %></td>
+        <td><%= link_to 'View', cv %></td>
+        <td><%= link_to 'Edit', edit_cv_path(cv) %></td>
+        <td><%= link_to 'Destroy', cv, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Create Cv', new_cv_path %>
+
+
+</div>
+</div>

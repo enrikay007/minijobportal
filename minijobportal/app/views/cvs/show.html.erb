@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+
+
+    <div class="wrapper">
+        <div class="sidebar-wrapper">
+            <div class="profile-container">
+                <%= image_tag(@cv.image) %> 
+                <br>
+                <br>
+                
+                <p><strong>Name:</strong><%= @cv.name %></p>
+                <p><strong>Profession:<%= @cv.profession %></strong></p>
+            </div><!--//profile-container-->
+            
+            <div class="contact-container container-block">
+                <ul class="list-unstyled contact-list">
+                    <li class="email"><a href="mailto: yourname@email.com"><strong>Email:</strong><%= @cv.email %></a></li>
+                </ul>
+            </div>
+
+
+        </div>
+
+        <div class="main-wrapper">
+
+            <section class="section summary-section">
+                <h2 class="section-title"><i class="fa fa-user"></i>Career Profile</h2>
+                
+                <div class="item">
+                  <div class="details">
+                  <p><%= @cv.education %></p>
+                </div>
+            </section>
+
+            <section class="section experiences-section">
+                <h2 class="section-title"><i class="fa fa-briefcase"></i>Experiences</h2>
+                
+                <div class="item">
+                  <div class="details">
+                        <p><%= @cv.experiences %></p>
+                    </div>
+                </div>
+
+            </section>
+
+<%= link_to 'Edit', edit_cv_path(@cv) %> |
+<%= link_to 'Back', cvs_path %>
+        </div>
+
+    
+ 
+
+
+
+
+
+
+
