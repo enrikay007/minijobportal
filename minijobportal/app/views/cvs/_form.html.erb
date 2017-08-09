@@ -1,3 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Create your CV 
+  </div>  
+  <div class="panel-body">
+    <div class="container">
+
+
+
 <%= form_for(@cv) do |f| %>
   <% if @cv.errors.any? %>
     <div id="error_explanation">
@@ -11,31 +20,58 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="row">
+          <div class="form-group">
+            <label>Name</label>
+            <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
+          </div>
   </div>
-  <div class="field">
-    <%= f.label :profession %><br>
-    <%= f.text_field :profession %>
+
+  <div class="row">
+          <div class="form-group">
+            <label>Profession</label>
+            <%= f.text_field :profession, placeholder: "Profession", class: "form-control" %>
+          </div>
   </div>
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.text_field :image %>
+  
+  <div class="row">
+          <div class="form-group">
+            <label>Image</label>
+            <%= f.text_field :image, placeholder: "Image_url", class: "form-control" %>
+          </div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+  
+
+  <div class="row">
+          <div class="form-group">
+            <label>Email</label>
+            <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+          </div>
   </div>
-  <div class="field">
-    <%= f.label :education %><br>
-    <%= f.text_area :education %>
+
+  <div class="row">
+          <div class="form-group">
+            <label>Education</label>
+            <%= f.text_area :education, placeholder: "Education", class: "form-control" %>
+          </div>
   </div>
-  <div class="field">
-    <%= f.label :experiences %><br>
-    <%= f.text_area :experiences %>
+
+  <div class="row">
+          <div class="form-group">
+            <label>Experiences</label>
+            <%= f.text_area :experiences, placeholder: "Experiences", class: "form-control" %>
+          </div>
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+        <%= f.submit "Save", class: "btn btn-primary" %>
   </div>
+  
 <% end %>
+
+</div>
+</div>
+</div>
+
+
+

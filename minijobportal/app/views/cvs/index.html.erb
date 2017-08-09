@@ -7,8 +7,9 @@
 <p>Welcome to user profile section.
 Please kindly create CV if not having one. Thank you</p>
 <p>Best Regards,</p>
-Your admin.
+Your Admin.
 
+<br>
 <p>
 <% @cvs.each do |cv| %>
 <%= link_to 'Go to my CV', cv %>
@@ -29,14 +30,19 @@ Your admin.
       <tr>
         <td><%= cv.name %></td>
         <td><%= cv.profession %></td>
+        </tr>
+        <tr>
         <td><%= link_to 'View', cv %></td>
         <td><%= link_to 'Edit', edit_cv_path(cv) %></td>
         <td><%= link_to 'Destroy', cv, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-     </tr>
+        </tr>
+     
     <% end %>
   </tbody>
 </table>
 
+<br>
+<!-- View if user created-->
 <%= link_to 'Create Cv', new_cv_path %>
 
 
