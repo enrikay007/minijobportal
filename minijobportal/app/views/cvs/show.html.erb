@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-
+<body>
 
     <div class="wrapper">
         <div class="sidebar-wrapper">
@@ -21,34 +21,37 @@
 
 
         </div>
-
+        
         <div class="main-wrapper">
-
+            
             <section class="section summary-section">
                 <h2 class="section-title"><i class="fa fa-user"></i>Career Profile</h2>
+                <div class="summary">
                 
-                <div class="item">
-                  <div class="details">
-                  <p><%= @cv.education %></p>
-                </div>
-            </section>
+                    <p><%= @cv.education %></p>
+                </div><!--//summary-->
+            </section><!--//section-->
+        
+
 
             <section class="section experiences-section">
                 <h2 class="section-title"><i class="fa fa-briefcase"></i>Experiences</h2>
                 
                 <div class="item">
-                  <div class="details">
+                    <div class="details">
                         <p><%= @cv.experiences %></p>
                     </div>
                 </div>
 
             </section>
-
+        </div>
+    </div>
+</body>
 <%= link_to 'Edit', edit_cv_path(@cv) %> |
 <%= link_to 'Back', cvs_path %>
-        </div>
+        
 
-    
+
  
 
 

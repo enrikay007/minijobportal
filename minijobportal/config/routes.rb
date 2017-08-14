@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'company/disclaimer', to: 'company#disclaimer'
+
+  get 'company/news', to: 'company#news'
+
+  get 'company/faqs', to: 'company#faqs'
+
+  get 'company/privacy', to: 'company#privacy'
+
+  get 'company/terms_conditions', to: 'company#terms_conditions'
+
+  get 'company/corporate_responsibility', to: 'company#corporate_responsibility'
+
+  get 'company/services', to: 'company#services'
+
   resources :cvs
   root 'pages#home'
 

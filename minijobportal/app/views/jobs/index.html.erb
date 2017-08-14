@@ -20,18 +20,20 @@
 						<%= image_tag job.photos[0].image.url(:thumb) if job.photos.length > 0%>
 					</div>
 					
-					<div class="col-md-3">
-						<h4><%= job.company_name %></h4>
-						<%= job.job_position %>
-					</div>
-
-					<div class="col-md-3">
-						<h2><%= job.job_status %>
+					<div class="col-md-5">
+						
+						<h4><strong><%= link_to job.job_position, job %></strong></h4>
+						<strong><%= job.company_name %></strong>
 					</div>
 
 					<div class="col-md-3 right">
-						<h4><%= link_to "View Job", edit_job_path(job), class: "btn btn-primary"%></h4>
+						<h4><%= job.job_status %></h4>
+						Field:<%= job.job_type %>
 					</div>
+
+					
+
+					
 				</div>				
 				<hr>
 			<% end %>

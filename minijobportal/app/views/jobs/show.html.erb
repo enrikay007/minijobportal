@@ -1,137 +1,112 @@
-<div class="panel panel-default">
+<body>
 
-<div class="panel-body">
-	
-	<!-- Image -->
-	<div class="row">
-		<div class="col-md-12">
+	<div class="wrapper">
+        <div class="sidebar-wrapper">
+            <div class="profile-container">
+			<%= image_tag @photos[0].image.url, class: "img-square avatar-full" if @photos.length > 0 %>
+	        <br>
+	        <br>
+	       <h4><%= @job.company_name %></h4>	
+               Field:<%= @job.industry_type %>		
+            </div>
+
+
+            <div class="contact-container container-block">
+                <ul class="list-unstyled contact-list">
+				
+				<strong>Educational Qualification:</strong><br>
+				<%= @job.education %>
+				
+				<br>
+				Working hrs:<%= @job.job_status %>
+
+				<br>
+				  <!-- Application form -->
+		         <%= render 'japplications/form' %> 
+			    </ul>
+            </div>    
+            
+                 
+                
+           
+        </div>
+	    <div class="main-wrapper">
+            
+            <section class="section summary-section">
+            <h2 class="section-title"><%= @job.company_name %></h2>
+            <br>
+            <br>
+            <br>
+            <br>
+             <h3 class="section-title"><i class="fa fa-briefcase"></i>Job Position: <%= @job.job_position%></h3>
 			
-			<%= image_tag @photos[0].image.url, class: "img-responsive" if @photos.length > 0 %>
+            <div class="item">
+                    <div class="details">
+      			    
+			<p><%= @job.job_description %></p>
 
+			</div>
+      			   
+      		</div>
+            </section>
 
-		</div>
+			<section class="section summary-section">
+             <h3 class="section-title"><i class="fa fa-wrench" aria-hidden="true"></i>Required skills and experience:</h3>
+      		 <p><h4><%= @job.job_skills %></h4></p>
+      		</section>	    
 
-	</div>
+			<strong>Address:</strong><%= @job.address %>
+			<br>
+			<strong>Salary:</strong>
+			<%= @job.salary%>
 	<br>
+	<br>	
+	<br>	
 
-	<!-- Main Info-->
-	<div class="row">
-		<div class="col-md-8">
-		<div class="row">
-			<div class="col-md-3 text-center">
-				<%= image_tag avatar_url(@job.user), class: "img-circle avatar-large"%><br><br>
-			<!--	<%= @job.user.fullname %> -->
-			</div>
-			<div class="col-md-8 text-center  row-space-1">
-				<h4><%= @job.company_name %></h4>
-				<%= @job.address %>
+    <!-- star carousel images-->
+    <!-- Carousel -->
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <% if @photos %>
 
-				<div class="row text-center row-space-1">
-				<div class="col-sm-3">
-					<%= @job.industry_type %>
-				</div>
+              <ol class="carousel-indicators">
+                      <% @photos.each do |photo| %>
+                        <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" ></li>
+                      <% end %>
+                 </ol>
+              <% end %>
 
-				<div class="col-sm-3">
-					<%= @job.job_type %>
-				</div>
-					
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <% if @photos %>
+                        <% @photos.each do |photo| %>
+                            <div class="item <%= 'active' if photo.id == @photos[0].id %>">
+                        <%= image_tag photo.image.url() %>
+                    </div>
+                        <% end %>
+                    <% end %>
 
-				<div class="col-sm-3">
-					<%= @job.job_status %>
-				</div>
+              </div>
 
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>                  
+        </div>
+    </div>
 
-				<div class="col-sm-3">
-					<%= @job.education %>
-				</div>
+    <br>
+    <hr>
+	<!-- end carousel--> 
 
-				</div>
-			</div>
-			<div class="row text-center">
-				<div class="col-sm-3">
-					<%= @job.industry_type %>
-				</div>
-			</div>
-		</div>
-			
-		</div>
-
-		<div class="col-md-4">
-		<!-- Application form -->
-		<%= render 'japplications/form' %>
-		</div>
-	</div>
-	
-
-	<!-- About -->
-	<div class="row">
-		<div class="col-md-12">
-			<h2>About this job</h2>
-			<p><%= @job.job_description %> <%= tinymce %></p>
-
-		</div>
-	</div>
-
-	<!-- Amenities -->
-	<div class="row">
-		<div class="col-md-2">
-		<p>Amenities</p>
-		</div>
-		<div class="col-md-18">
-			<div class="row">
-				<div class="col-md-8">
-					<ul class="amentities">
-						
-					</ul>
-				</div>
-				<div class="col-md-8">
-					
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Carousel -->
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div id="myCarousel" class="carousel slide" data-ride="carousel">
-			  <!-- Indicators -->
-			  <% if @photos %>
-
-			  <ol class="carousel-indicators">
-					  <% @photos.each do |photo| %>
-					    <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" ></li>
-					  <% end %>
-			 	 </ol>
-			  <% end %>
-
-			  <!-- Wrapper for slides -->
-			  <div class="carousel-inner" role="listbox">
-			  	<% if @photos %>
-			  			<% @photos.each do |photo| %>
-			    			<div class="item <%= 'active' if photo.id == @photos[0].id %>">
-			     		<%= image_tag photo.image.url() %>
-			    	</div>
-			  			<% end %>
-			  		<% end %>
-
-			  </div>
-
-			  <!-- Left and right controls -->
-			  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-			    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-			    <span class="sr-only">Previous</span>
-			  </a>
-			  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-			    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			    <span class="sr-only">Next</span>
-			  </a>
-			</div>					
-		</div>
-	</div>
-
-	<br>
-	<hr>
 
 	<!--Google Map-->
 	<div class="row">
@@ -171,11 +146,19 @@
 
 				</div>
 	</div>
-	
-	
 
-	
-	
+<!-- Google map end-->
 
-</div>	
-</div>
+
+
+		</div>
+	</div>	
+		
+	
+	<%= link_to 'Back', jobs_path %>
+</body>
+
+
+
+
+

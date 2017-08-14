@@ -265,6 +265,7 @@ footer ul li {
   font-family: verdana, arial, sans-serif;
   text-align: center;
   font-size: 13px;
+  padding: 200px 0 0px;/// spacing
   line-height: 350px;
   background-image: image-url('pexels-photo.jpg');
   background-repeat: no-repeat;
@@ -272,6 +273,13 @@ footer ul li {
 
 
   }
+
+  .intro {
+    color: #ffffff;
+    text-align: center;
+    padding: 50px 0 0px;
+    background-image: url(images/sm_background.jpg);
+}
 
 
 ///
@@ -373,6 +381,9 @@ margin-bottom: 24px;
 	width: 68px;
 }
 
+.avatar-config {
+  height: 100px;
+}
 .avatar-full {
  width: 100%;
 }
@@ -801,4 +812,27 @@ display: block;
 }
 /* Large devices (large desktops, 1200px and up) */
 /* Ex-Large devices (large desktops, 1200px and up) */
+
+
+.col.s12 {
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+}
+
+.col {
+    float: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.intro-big-header {
+    font-family: 'ProximaNova', sans-serif;
+    font-size: 45px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.25;
+}
 
